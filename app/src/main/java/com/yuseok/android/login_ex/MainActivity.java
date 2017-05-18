@@ -35,21 +35,19 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    // ID와 PASSWORD가 일치하는지 확인
     public void LoginSuccess() {
 
         chId = editId.getText().toString();
         chPw = editPw.getText().toString();
 
+        // ID가 admin이고 PW가 1234일때
         if (chId.equals("admin") && chPw.equals("1234")) {
+            // 다음 Activity로 넘어감
             intent = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(intent);
         } else  {
-            Toast.makeText(this, "아이디 혹은 비밀번호가 일치하지 않습니다", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    public void LoginFail() {
-        if (editId.getText().equals("admin") || editPw.getText().equals("1234")) {
+            // 아닐시에는 Toast를 띄워준다.
             Toast.makeText(this, "아이디 혹은 비밀번호가 일치하지 않습니다", Toast.LENGTH_SHORT).show();
         }
     }
